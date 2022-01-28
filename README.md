@@ -4,6 +4,7 @@ import datetime
 import wikipedia
 import webbrowser
 import os
+from PIL import ImageGrab
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -50,6 +51,9 @@ def takeCommand():
         return "None"
     return query
 
+def takeSS():
+    image = ImageGrab.grab()
+    image.show()
 
 if __name__ == "__main__":
     wishMe()
@@ -91,7 +95,7 @@ if __name__ == "__main__":
             webbrowser.open("meet.google.com")
 
         elif 'play music' in query: # # command for playing music
-            music_dir = 'C:\\Users\\Mubeen\\Desktop\\All Programing Languages\\Python\\songs'
+            music_dir = 'Add your music dir path here'
             songs = os.listdir(music_dir) 
             speak("Playing music")
             print(songs)
@@ -102,34 +106,37 @@ if __name__ == "__main__":
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query: # command for vscode
-            codePath = "C:\\Users\\Mubeen\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = "Add your vs code path"
             speak("Opening VS code")
             os.startfile(codePath)
 
         elif 'open discord' in query: # command for opening discord
-            discordPath = "C:\\Users\\Mubeen\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe"
+            discordPath = "add your discord path"
             speak("Opening discord")
             os.startfile(discordPath)
 
         elif 'open whatsapp' in query: # command for opening whatsapp
-            whatsAppPath = "C:\\Users\\Mubeen\\AppData\\Local\\WhatsApp\\WhatsApp.exe"
+            whatsAppPath = "add your whatsapp path"
             speak("Opening whatsapp")
             os.startfile(whatsAppPath)
 
         elif 'open telegram' in query: # command for opening telegram
-            telegramPath = "C:\\Users\\Mubeen\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe"
+            telegramPath = "add your telegram path"
             speak("Opening telegram")
             os.startfile(telegramPath)
 
         elif 'open zoom' in query: # command for opening zoom
-            zoomPath = "C:\\Users\\Mubeen\\AppData\\Roaming\\Zoom\\bin\\Zoom.exe"
+            zoomPath = "add your zoom path"
             speak("Opening Zoom")
             os.startfile(zoomPath)
 
         elif 'open chrome' in query: # command for opening chrome
-            chromePath = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+            chromePath = "add your chrome path"
             speak("Opening chrome")
-            os.startfile(chromePath)
+            os.startfile(chromePath)    
+
+        elif 'take screenshot' in query:
+            takeSS()
 
         elif 'javris quit' in query: # command for quiting the program
             speak("Good bye!")
